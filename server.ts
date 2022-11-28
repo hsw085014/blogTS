@@ -1,4 +1,4 @@
-import * as express from 'express'
+import express from 'express';
 const app = express();
 import { data } from './secure/app';
 import * as path from 'path';
@@ -6,8 +6,8 @@ import * as path from 'path';
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "public"));
 
-app.get('/', (req, res) => {
-    res.render('home');
+app.get('/', (req: express.Request, res: express.Response) => {
+    res.sendFile(__dirname, "public/home.pug");
 })
 
 app.listen(data[0].port, () => {
